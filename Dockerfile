@@ -10,6 +10,12 @@ RUN mkdir -p /app
 COPY . /app
 COPY ./src /app
 
+#install PECL and grpc php extension
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+    && pecl install grpc \
+    && docker-php-ext-enable grpc \
+    && apk del .build-deps
+
 RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
 RUN cd /app && \
     /usr/local/bin/composer install --no-dev
