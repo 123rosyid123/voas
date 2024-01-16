@@ -9,10 +9,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "google/cloud-firestore": "^1.40",
+        "google/protobuf": "^3.17",
+        "grpc/grpc": "^1.38",
         "guzzlehttp/guzzle": "^7.2",
+        "kreait/laravel-firebase": "^5.6",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

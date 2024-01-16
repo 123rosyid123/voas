@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// Route::apiResource('/users', 'API\UserController');
+// Route::apiResource('/photos', UserController::class);
+Route::middleware('akunbiz')->group(function () {
+    Route::post('/users/bulk-update', [UserController::class, 'bulkUpdate']);
+    // Route::apiResource('/users', UserController::class);
 });
